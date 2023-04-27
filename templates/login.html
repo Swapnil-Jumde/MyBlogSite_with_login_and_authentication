@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% extends "base.html" %}
+</head>
+<body>
+{% block title %}Login{% endblock %}
+{% block content %}
+
+
+
+
+
+<div class="main_div" style="background-image: url(static/images/blog_bg-image.jpg);
+                                           height: auto; margin-bottom: 5%;">
+        <div class="container nav-container">
+            <div class="container nav-container">
+                <div class="body-div" >
+                    <div class="heading_main">
+                        <h2 class="h2 site-title" style="font-size: 3rem;">Login Page</h2>
+                        <p>Powered By Swapnil Jumde On March 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+<form class="container" style="margin-left:18%; margin-right:18%; margin-bottom:5%;" action="{{ url_for('login') }}" method="POST">
+    {% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages: %}
+<p style="color:red;">{{ message }}</p>
+{% endfor%}
+{% endif %}
+{% endwith %}
+    {{ form.csrf_token }}
+    <p>{{ form.email.label }} <br> {{ form.email(size=50) }}</p>
+    <p> {{ form.password.label }} <br> {{ form.password(size=50) }}</p>
+    {{ form.submit }}
+</form>
+
+
+{% endblock %}
+</body>
+</html>

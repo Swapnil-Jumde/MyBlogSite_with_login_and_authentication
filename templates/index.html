@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends "base.html" %}
+
+
+</head>
+
+<body>
+{% block title %}MyBlog Site{% endblock %}
+{% block content %}
+
+<div class="main_div" style="background-image: url(static/images/blog_bg-image.jpg);
+                                           height: 30rem;">
+        <div class="container nav-container">
+            <div class="container nav-container">
+                <div class="body-div" >
+                    <div class="heading_main">
+                        <h2 class="h2 site-title" style="font-size: 4.5rem;">My Blog Site</h2>
+                        <h3>Powered By Swapnil Jumde On March 2023</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+<div class="container blog_display" id="blogs">
+                           {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                            {% for message in messages: %}
+                            <p class="titles" style="color:red;">{{ message }}</p>
+                            {% endfor%}
+                            {% endif %}
+                            {% endwith %}
+        {% for post in blog: %}
+               <div class="titles">
+                   <h3>{{  post.title }}</h3>
+                   <p>Author - {{ post.author.name }}</p>
+                    <a href="{{ url_for('get_blog', num=post.id, blog=blog ) }}">Read More</a><br>
+                   <a class="del-btn" href="{{ url_for('delete', id=post.id)}}">Delete 🗑️</a>
+                   <hr>
+               </div>
+        {% endfor %}
+        <div class="container" style="text-align:right;">
+                <a class="btn btn-dark"  href="{{ url_for('new_post') }}">Create New Post</a>
+        </div>
+</div>
+
+{% endblock %}
+
+
+</body>
+
+</html>

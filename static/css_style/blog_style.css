@@ -1,0 +1,50 @@
+.brand-text{
+    font-size: 2rem;
+}
+
+.heading_main{
+        font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+        color: white;
+        text-align: center;
+        margin: 5% 20%;
+        text-align: justify;
+        text-justify: inter-word;
+}
+
+/*navbar*/
+
+.nav-container{
+padding-top:2rem;
+}
+
+.main_blog_div{
+        background-color: #68B984;
+        padding: 20px;
+}
+.main_div{
+         background-image: url('/static/images/blog_bg-image1.jpg');
+         height: 30rem;
+}
+
+/*main heading*/
+.body-div{
+margin-top:5rem;
+}
+
+.footer{
+text-align: center;
+margin-bottom: 15px;
+}
+
+/* blog titles fetching */
+.titles{
+margin: 5% 25%;
+text-align: justify;
+text-justify: inter-word;
+}
+
+/*mob dev*/
+@media(){
+
+
+}

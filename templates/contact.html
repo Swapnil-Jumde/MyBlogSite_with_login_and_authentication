@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends "base.html" %}
+    <meta charset="UTF-8">
+</head>
+<body>
+{% block title %}Contact Us{% endblock %}
+{% block content %}
+
+<div class="main_div" style="background-image: url(static/images/blog_bg-image.jpg);
+                                           height: auto;">
+    <div class="body-div" >
+        <div class="heading_main">
+            {% if msg_sent: %}
+            <h2 class="h2" style="font-size: 3rem;" >Message Sent Successfully :)</h2>
+            {% else: %}
+            <h2 class="h2" style="font-size: 3rem;" >Contact Form :)</h2>
+            {% endif %}
+            <p class="">Powered By Swapnil Jumde On March 2023</p>
+        </div>
+    </div>
+</div>
+
+<form class="blog-title" action="{{url_for('contact')}}" method="post" style="padding-top:3rem; padding-bottom:3rem;">
+    <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" name="name" aria-describedby="emailHelp" placeholder="Enter name">
+  </div>
+
+  <div class="form-group">
+    <label>Email address</label>
+    <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+  </div>
+
+  <div class="form-group">
+    <label >Mobile Number</label>
+    <input type="text" class="form-control" name="number" placeholder="Contact Number">
+  </div>
+
+  <div class="form-group">
+        <label>Your Message</label>
+      <textarea rows="5" class="form-control" name="message" placeholder="Enter Your Message"></textarea>
+  </div>
+
+    <button type="submit" class="btn btn-dark">Submit</button>
+    <a href="{{url_for('homepage')}}" class="btn btn-dark">Back To Home</a>
+</form>
+
+{% endblock %}
+</body>
+</html>

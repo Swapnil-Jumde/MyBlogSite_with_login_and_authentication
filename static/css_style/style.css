@@ -1,0 +1,69 @@
+.brand-text{
+    font-size: 2rem;
+}
+
+.item{
+padding-right: 8%;
+}
+
+.navbar-brand{
+padding-left: 8%;
+font-size:2.5rem;
+}
+
+.site-title{
+margin: 0 auto 10px auto;
+}
+
+.blog-title{
+text-align: left;
+padding-left:15%;
+padding-right:15%;
+text-align: justify;
+text-justify: inter-word;
+}
+
+.heading_main{
+        font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+        color: white;
+        margin: 0 auto 10px 0;
+        margin-left:15%
+}
+
+/*navbar*/
+.nav-container{
+padding-top:2rem;
+}
+
+.main_blog_div{
+        background-color: #68B984;
+        padding: 20px;
+}
+
+/*main heading*/
+.body-div{
+padding-top:5rem;
+padding-bottom:5rem;
+}
+
+.footer{
+text-align: center;
+margin-bottom: 15px;
+}
+
+/* blog titles fetching */
+.titles{
+margin: 5% 15%;
+text-align: justify;
+text-justify: inter-word;
+}
+
+/*media query starts here*/
+@media(max-width: 776px){
+.titles{
+margin: 5% 10%;
+text-align: justify;
+text-justify: inter-word;
+}
+
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends "base.html" %}
+    <meta charset="UTF-8">
+
+</head>
+<body>
+
+{% block content %}
+
+<div class="main_div" style="background-image: url({{ url_for('static', filename='images/blog_bg-image.jpg') }});">
+    <div class="body-div" >
+        <div class="heading_main">
+            <h2 class="h2" style="font-size: 4rem;" >Edit Blog Here</h2>
+
+            <p>Powered By Swapnil Jumde On March 2023</p>
+        </div>
+    </div>
+</div>
+<form class="container" style="padding-left:12%; padding-right:12%; padding-top: 2rem;" action="{{url_for('edit', id=posts.id)}}" method="POST">
+    {{ form.csrf_token }}
+    {{ ckeditor.load() }}
+    {{ ckeditor.config(name='body') }}
+    <p>{{ form.title.label }} <br> {{ form.title(size=50) }}</p>
+    <p> {{ form.img_url.label }} <br> {{ form.img_url(size=50) }} </p>
+    <p> {{ form.author.label }} <br> {{ form.author(size=50) }} </p>
+    <p> {{ form.body.label }} <br> {{ form.body(size=50) }} </p>
+    {{ form.submit }}
+    </form>
+
+{% endblock %}
+</body>
+</html>

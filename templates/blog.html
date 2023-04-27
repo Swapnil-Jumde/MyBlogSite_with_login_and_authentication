@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends "base.html" %}
+    <meta charset="UTF-8">
+<body>
+<!--navbar-->
+<!--display containts-->
+{% block content %}
+    <div class="body-div" style="background-image: url({{ url_for('static', filename='images/blog_bg-image.jpg') }});">
+        <div class="heading_main">
+            <h2 class="h2" style="font-size: 2rem; margin-right: 15%;">{{blog1.title}}</h2>
+            <p>- {{ blog1.author.name }}</p>
+            <p class="">Powered By Swapnil Jumde On March 2023</p>
+        </div>
+    </div>
+    <div class="blog_display">
+       <div class="titles">
+           <p>{{  blog1.body|safe }}</p>
+           <div>
+            <a class="btn btn-dark float-right" href="{{ url_for('edit', id=blog1.id) }}">Edit Post</a>
+        </div>
+       </div>
+    </div>
+
+
+<!--comment area-->
+
+<div class="col-lg-8 col-md-10 mx-auto comment">
+<form class="container" style="padding-left:30%; padding-right:30%; padding-top: 2rem;" action="{{url_for('get_blog', num=blog1.id)}}" method="POST">
+
+    {% for comment in blog1.comments: %}
+    {{ comment.text }}<br>
+    {% endfor %}
+    {{ form.csrf_token }}
+    {{ ckeditor.load() }}
+    {{ ckeditor.config(name='comment_text') }}
+    <p>{{ form.comment_text.label }} <br> {{ form.comment_text(size=50) }}</p>
+    {{ form.submit }}
+    </form>
+</div>
+
+
+  {% endblock %}
+
+</body>
+</html>
